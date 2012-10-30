@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="jenry.activity"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="7"/>
+
+    <application android:icon="@drawable/icon" android:label="@string/activity_title_Social_Security_Name">
+        
+        <!-- start AdView -->
+		<meta-data android:value="SDK201216240410152j6tfts8d0bhl6w" android:name="ADVIEW_SDK_KEY" />
+		<meta-data android:name="AdView_CHANNEL" android:value="GFAN" />
+		<!-- end AdView -->
+        
+        <!--start 百度 -->
+        <activity android:name="com.baidu.mobads.AppActivity" android:configChanges="keyboard" />
+		<meta-data android:name="BaiduMobAd_APP_ID" android:value="c6848779" /> 
+		<meta-data android:name="BaiduMobAd_APP_SEC" android:value="c6848779" />
+		<meta-data android:name="BaiduMobAd_DEBUG_TOKEN" android:value="adview" />
+		<!--end 百度 -->
+		
+		<!--AdView SDK for Youmi 有米-->
+    	<activity android:name="net.youmi.android.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation"/>
+        <receiver android:name="net.youmi.android.YoumiReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_INSTALL"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="YOUMI_CHANNEL" android:value="GFAN" />
+        <!-- end Youmi 有米-->
+		
+		<!-- 主界面，显示选项 -->
+		<activity android:name=".Home_Activity" 
+		    	android:theme="@android:style/Theme.NoTitleBar"
+		    	>
+		    	
+		</activity>
+		
+		<!-- 社保查询主界面 -->
+		<activity android:name=".Social_Security_Activity"
+                  android:label="@string/activity_title_Social_Security_Name"
+                  android:theme="@android:style/Theme.NoTitleBar"
+                  >
+            	<intent-filter>
+	                <action android:name="android.intent.action.MAIN" />
+	                <category android:name="android.intent.category.LAUNCHER" />
+            	</intent-filter>
+        </activity>
+		
+		<!-- 社保查询结果界面 -->
+		<activity android:name=".Social_Security_Result_Activity" 
+		    	android:label="@string/activity_title_Social_Security_Name"
+		    	android:theme="@android:style/Theme.NoTitleBar"
+		    	>
+		    	
+		</activity>
+		
+		<!-- 车辆违章查询界面 -->
+	    <activity android:name=".Car_Violate_Regulations"
+                 android:label="@string/text_car_violate_regulations"
+                 android:theme="@android:style/Theme.NoTitleBar"
+                 >
+            	
+        </activity>
+    </application>
+    
+	<!-- 必须申明的权限 -->
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<!-- SDK 2.1新增权限，建议使用 -->
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> 
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> 
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+	<uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+</manifest>
